@@ -26,7 +26,9 @@ class RegisterPage extends StatelessWidget {
               alignment: Alignment.center, // use aligment
               color: const Color.fromRGBO(0, 96, 91, 1),
               child: Image.asset('assets/images/background.jpg',
-                  height: 1500, width: 500, fit: BoxFit.cover),
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width, 
+                  fit: BoxFit.cover),
             ),
             Positioned(
               bottom: 0,

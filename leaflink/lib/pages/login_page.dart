@@ -59,23 +59,20 @@ class LoginPage extends StatelessWidget {
                 child: Positioned(
               bottom: 0,
               child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 1,
+                  height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // welcome back, you've been missed!
-                        const Text(
+                        Text(
                           'Welcome back you\'ve been missed!',
                           style: TextStyle(
-                            color: Color.fromRGBO(11, 60, 73, 1),
-                            fontSize: 16,
+                            color: const Color.fromRGBO(11, 60, 73, 1),
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
 
                         // email textfield
                         MyTextField(
@@ -84,9 +81,6 @@ class LoginPage extends StatelessWidget {
                           obscureText: false,
                         ),
 
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
-
                         // password textfield
                         MyTextField(
                           controller: passwordController,
@@ -94,17 +88,11 @@ class LoginPage extends StatelessWidget {
                           obscureText: true,
                         ),
 
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
-
                         // sign in button
                         MyButton(
                           onTap: onTap,
                           text: 'Sign In',
                         ),
-
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
 
                         // or continue with
                         const Padding(
@@ -134,9 +122,6 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
-
                         // google + apple sign in buttons
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -151,25 +136,26 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
 
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.03),
-
                         // not a member? register now
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               'Not a member?',
                               style: TextStyle(
-                                  color: Color.fromRGBO(66, 123, 138, 1)),
+                                  color: const Color.fromRGBO(66, 123, 138, 1),
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.02),
                             ),
                             const SizedBox(width: 4),
                             GestureDetector(
                               onTap: onTap,
-                              child: const Text(
+                              child: Text(
                                 'Register now',
                                 style: TextStyle(
-                                  color: Color.fromRGBO(74, 42, 42, 1),
+                                  color: const Color.fromRGBO(74, 42, 42, 1),
+                                  fontSize:
+                                      MediaQuery.of(context).size.height * 0.02,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

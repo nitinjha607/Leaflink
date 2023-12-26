@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:leaflink/components/my_textfield.dart';
+import 'package:leaflink/components/square_tile.dart';
 import 'package:leaflink/components/my_button.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key, required this.onTap});
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key, required this.onTap});
 
   // text editing controllers
   final emailController = TextEditingController();
-  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-  final confirmPasController = TextEditingController();
   final void Function()? onTap;
 
   //signuserin method
-  void registerUser() {}
+  void signUserin() {}
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,9 @@ class RegisterPage extends StatelessWidget {
               alignment: Alignment.center, // use aligment
               color: const Color.fromRGBO(0, 96, 91, 1),
               child: Image.asset('assets/images/background.jpg',
-                  height: 1500, width: 500, fit: BoxFit.cover),
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover),
             ),
             Positioned(
               bottom: 0,
@@ -55,91 +56,128 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
             SafeArea(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  // welcome back, you've been missed!
-                  const Positioned(
-                    top: 150,
-                    child: Text(
-                      'Welcome to Leaflink!',
-                      style: TextStyle(
-                        color: Color.fromRGBO(11, 60, 73, 1),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  // email textfield
-                  MyTextField(
-                    controller: emailController,
-                    hintText: 'Email',
-                    obscureText: false,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  //username textfield
-                  MyTextField(
-                    controller: usernameController,
-                    hintText: 'Username',
-                    obscureText: false,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  // password textfield
-                  MyTextField(
-                    controller: passwordController,
-                    hintText: 'Password',
-                    obscureText: true,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  //confirmPas textfield
-                  MyTextField(
-                    controller: confirmPasController,
-                    hintText: 'Re-enter Password',
-                    obscureText: true,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  // sign in button
-                  MyButton(
-                    onTap: registerUser,
-                    text: 'Register',
-                  ),
-
-                  const SizedBox(height: 30),
-
-                  // Already have an account?login here
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Already have an account?',
-                        style:
-                            TextStyle(color: Color.fromRGBO(66, 123, 138, 1)),
-                      ),
-                      const SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: onTap,
-                        child: const Text(
-                          'Login here',
+                child: Positioned(
+              bottom: 0,
+              child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 1,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // welcome back, you've been missed!
+                        const Text(
+                          'Welcome back you\'ve been missed!',
                           style: TextStyle(
-                            color: Color.fromRGBO(74, 42, 42, 1),
+                            color: Color.fromRGBO(11, 60, 73, 1),
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ]))
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // email textfield
+                        MyTextField(
+                          controller: emailController,
+                          hintText: 'Email',
+                          obscureText: false,
+                        ),
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // password textfield
+                        MyTextField(
+                          controller: passwordController,
+                          hintText: 'Password',
+                          obscureText: true,
+                        ),
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // sign in button
+                        MyButton(
+                          onTap: onTap,
+                          text: 'Sign In',
+                        ),
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // or continue with
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  thickness: 0.5,
+                                  color: Color.fromRGBO(66, 123, 138, 1),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                                child: Text(
+                                  'Or continue with',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(66, 123, 138, 1)),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                    thickness: 0.5,
+                                    color: Color.fromRGBO(66, 123, 138, 1)),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // google + apple sign in buttons
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // google button
+                            SquareTile(imagePath: 'assets/images/google.png'),
+
+                            SizedBox(width: 25),
+
+                            // apple button
+                            SquareTile(imagePath: 'assets/images/apple.png'),
+                          ],
+                        ),
+
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03),
+
+                        // not a member? register now
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Not a member?',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(66, 123, 138, 1)),
+                            ),
+                            const SizedBox(width: 4),
+                            GestureDetector(
+                              onTap: onTap,
+                              child: const Text(
+                                'Register now',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(74, 42, 42, 1),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ])),
+            ))
           ]),
         ),
       ),

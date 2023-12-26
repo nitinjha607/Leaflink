@@ -12,7 +12,9 @@ class SquareTile extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.all(20),
+          margin:
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(16),
@@ -20,7 +22,7 @@ class SquareTile extends StatelessWidget {
           ),
           child: Image.asset(
             imagePath,
-            height: 40,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
         ),
       ],

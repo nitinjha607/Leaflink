@@ -26,7 +26,9 @@ class RegisterPage extends StatelessWidget {
               alignment: Alignment.center, // use aligment
               color: const Color.fromRGBO(0, 96, 91, 1),
               child: Image.asset('assets/images/background.jpg',
-                  height: 1500, width: 500, fit: BoxFit.cover),
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width, 
+                  fit: BoxFit.cover),
             ),
             Positioned(
               bottom: 0,
@@ -55,91 +57,89 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
             SafeArea(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  // welcome back, you've been missed!
-                  const Positioned(
-                    top: 150,
-                    child: Text(
-                      'Welcome to Leaflink!',
-                      style: TextStyle(
-                        color: Color.fromRGBO(11, 60, 73, 1),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                child: Positioned(
+                    bottom: 0,
+                    child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 1,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Welcome to Leaflink!',
+                                style: TextStyle(
+                                  color: const Color.fromRGBO(11, 60, 73, 1),
+                                  fontSize:
+                                      MediaQuery.of(context).size.height * 0.02,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
 
-                  const SizedBox(height: 22),
+                              // email textfield
+                              MyTextField(
+                                controller: emailController,
+                                hintText: 'Email',
+                                obscureText: false,
+                              ),
 
-                  // email textfield
-                  MyTextField(
-                    controller: emailController,
-                    hintText: 'Email',
-                    obscureText: false,
-                  ),
+                              //username textfield
+                              MyTextField(
+                                controller: usernameController,
+                                hintText: 'Username',
+                                obscureText: false,
+                              ),
 
-                  const SizedBox(height: 22),
+                              // password textfield
+                              MyTextField(
+                                controller: passwordController,
+                                hintText: 'Password',
+                                obscureText: true,
+                              ),
 
-                  //username textfield
-                  MyTextField(
-                    controller: usernameController,
-                    hintText: 'Username',
-                    obscureText: false,
-                  ),
+                              //confirmPas textfield
+                              MyTextField(
+                                controller: confirmPasController,
+                                hintText: 'Re-enter Password',
+                                obscureText: true,
+                              ),
 
-                  const SizedBox(height: 22),
+                              // sign in button
+                              MyButton(
+                                onTap: registerUser,
+                                text: 'Register',
+                              ),
 
-                  // password textfield
-                  MyTextField(
-                    controller: passwordController,
-                    hintText: 'Password',
-                    obscureText: true,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  //confirmPas textfield
-                  MyTextField(
-                    controller: confirmPasController,
-                    hintText: 'Re-enter Password',
-                    obscureText: true,
-                  ),
-
-                  const SizedBox(height: 22),
-
-                  // sign in button
-                  MyButton(
-                    onTap: registerUser,
-                    text: 'Register',
-                  ),
-
-                  const SizedBox(height: 30),
-
-                  // Already have an account?login here
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Already have an account?',
-                        style:
-                            TextStyle(color: Color.fromRGBO(66, 123, 138, 1)),
-                      ),
-                      const SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: onTap,
-                        child: const Text(
-                          'Login here',
-                          style: TextStyle(
-                            color: Color.fromRGBO(74, 42, 42, 1),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ]))
+                              // Already have an account?login here
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Already have an account?',
+                                    style: TextStyle(
+                                        color: const Color.fromRGBO(
+                                            66, 123, 138, 1),
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  GestureDetector(
+                                    onTap: onTap,
+                                    child: Text(
+                                      'Login here',
+                                      style: TextStyle(
+                                          color: const Color.fromRGBO(
+                                              74, 42, 42, 1),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.02),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ]))))
           ]),
         ),
       ),

@@ -14,23 +14,30 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: TextField(
-          controller: controller,
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color.fromRGBO(246, 245, 235, 1)),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color.fromRGBO(190, 212, 157, 1)),
-            ),
-            fillColor: const Color.fromRGBO(190, 212, 157, 1),
-            filled: true,
-            hintText: hintText,
-            hintStyle: const TextStyle(color: Color.fromRGBO(246, 245, 235, 1)),
-          ),
-        ));
+    return Container(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.009),
+        child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.83,
+            height: MediaQuery.of(context).size.height * 0.074,
+            child: TextField(
+              style: const TextStyle(fontSize: 15.0),
+              controller: controller,
+              obscureText: obscureText,
+              decoration: InputDecoration(
+                enabledBorder: const OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Color.fromRGBO(246, 245, 235, 1)),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: Color.fromRGBO(190, 212, 157, 1)),
+                ),
+                fillColor: const Color.fromRGBO(190, 212, 157, 1),
+                filled: true,
+                hintText: hintText,
+                hintStyle:
+                    const TextStyle(color: Color.fromRGBO(246, 245, 235, 1)),
+              ),
+            )));
   }
 }

@@ -16,6 +16,10 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void forgotpass() {
+      Navigator.pushNamed(context, "/ForgotPasswordPage");
+    }
+
     return MaterialApp(
         home: Scaffold(
       body: SafeArea(
@@ -94,9 +98,21 @@ class LoginPage extends StatelessWidget {
                           text: 'Sign In',
                         ),
 
+                        //forgot password
+                        GestureDetector(
+                          onTap: forgotpass,
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                              color: Color.fromRGBO(66, 123, 138, 1),
+                            ),
+                          ),
+                        ),
+
                         // or continue with
                         const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25.0),
+                          padding: EdgeInsets.only(
+                              left: 25.0, right: 25.0, bottom: 2.0),
                           child: Row(
                             children: [
                               Expanded(

@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LogInOrRegister(),
       routes: <String, WidgetBuilder>{
-        "/ForgotPasswordPage": (BuildContext context) => ForgotPasswordPage(),
+        ForgotPasswordPage.routeName: (BuildContext context) =>
+            ForgotPasswordPage(),
       },
     );
   }

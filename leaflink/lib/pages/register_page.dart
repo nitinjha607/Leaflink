@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
               color: const Color.fromRGBO(0, 96, 91, 1),
               child: Image.asset('assets/images/background.jpg',
                   height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width, 
+                  width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover),
             ),
             Positioned(

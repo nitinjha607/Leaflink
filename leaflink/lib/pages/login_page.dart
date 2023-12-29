@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void forgotpass() {
-      Navigator.pushNamed(context, "/ForgotPasswordPage");
+      Navigator.pushNamed(context, ForgotPasswordPage.routeName);
     }
 
     return MaterialApp(

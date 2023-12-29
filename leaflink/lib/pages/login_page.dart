@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:leaflink/components/my_textfield.dart';
 import 'package:leaflink/components/square_tile.dart';
 import 'package:leaflink/components/my_button.dart';
+import 'package:leaflink/pages/forgotpass_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key, required this.onTap});

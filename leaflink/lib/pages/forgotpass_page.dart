@@ -3,6 +3,7 @@ import 'package:leaflink/components/my_textfield.dart';
 import 'package:leaflink/components/my_button.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
+  static const String routeName = 'forgot_password_page';
   ForgotPasswordPage({super.key});
 
   // text editing controllers

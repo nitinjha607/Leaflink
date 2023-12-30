@@ -3,7 +3,7 @@ import 'package:leaflink/components/my_textfield.dart';
 import 'package:leaflink/components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:leaflink/pages/home.dart';
+import 'package:leaflink/pages/profilesetup_page.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({Key? key, required this.onTap});
@@ -38,14 +38,14 @@ class RegisterPage extends StatelessWidget {
         // Add other user details as needed
       });
 
-      // Display success message or navigate to the next screen
+      // Display success message
       print('User registered successfully!');
 
-      // Navigate to the home screen
+      // Navigate to the profile setup page after registration
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => ProfileSetupPage(),
         ),
       );
     } catch (e) {

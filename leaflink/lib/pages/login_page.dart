@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:leaflink/components/my_textfield.dart';
 import 'package:leaflink/components/my_button.dart';
 import 'package:leaflink/pages/forgotpass_page.dart';
-import 'package:leaflink/pages/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:leaflink/pages/profilesetup_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key, required this.onTap});
@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => ProfileSetupPage(),
         ),
       );
     } catch (e) {

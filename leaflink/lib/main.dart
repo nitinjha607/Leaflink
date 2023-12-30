@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
 import 'package:leaflink/auth/login_or_register.dart';
 import 'package:leaflink/pages/forgotpass_page.dart';
 
@@ -30,5 +31,31 @@ class MyApp extends StatelessWidget {
             ForgotPasswordPage(),
       },
     );
+  }
+}
+
+// Function to handle user registration
+Future<void> registerUser(String email, String password) async {
+  try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    print('User registered successfully');
+  } on FirebaseAuthException catch (e) {
+    print('Failed to register user: $e');
+  }
+}
+
+// Function to handle user login
+Future<void> loginUser(String email, String password) async {
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    print('User logged in successfully');
+  } on FirebaseAuthException catch (e) {
+    print('Failed to log in: $e');
   }
 }

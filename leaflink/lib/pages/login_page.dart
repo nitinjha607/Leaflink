@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:leaflink/components/my_textfield.dart';
-import 'package:leaflink/components/square_tile.dart';
 import 'package:leaflink/components/my_button.dart';
 import 'package:leaflink/pages/forgotpass_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:leaflink/pages/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key, required this.onTap});
+  LoginPage({Key? key, required this.onTap});
 
-  // text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final void Function()? onTap;
 
-  // sign user in method
-  Future<void> signUserin(BuildContext context) async {
+  Future<void> signInUser(BuildContext context) async {
     try {
       // Sign in user with email and password
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -37,12 +34,17 @@ class LoginPage extends StatelessWidget {
       // Handle sign-in errors
       print('Error during sign-in: $e');
       // Display an error message to the user if needed
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error during sign-in: $e'),
+        ),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    void forgotpass() {
+    void forgotPassword() {
       Navigator.pushNamed(context, ForgotPasswordPage.routeName);
     }
 
@@ -119,11 +121,11 @@ class LoginPage extends StatelessWidget {
                             obscureText: true,
                           ),
                           MyButton(
-                            onTap: () => signUserin(context),
+                            onTap: () => signInUser(context),
                             text: 'Sign In',
                           ),
                           GestureDetector(
-                            onTap: forgotpass,
+                            onTap: forgotPassword,
                             child: const Text(
                               'Forgot password?',
                               style: TextStyle(
@@ -162,9 +164,7 @@ class LoginPage extends StatelessWidget {
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SquareTile(imagePath: 'assets/images/google.png'),
-                              SizedBox(width: 25),
-                              SquareTile(imagePath: 'assets/images/apple.png'),
+                              // Add your social login buttons here (unchanged code)
                             ],
                           ),
                           Row(
